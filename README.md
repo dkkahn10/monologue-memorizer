@@ -27,5 +27,4 @@ Your app description, here.
 
 ![Build Status](https://codeship.com/projects/1f4172d0-711f-0134-d1a4-4aa32a10a3f8/status?branch=master)
 
-![Coverage Status](https://coveralls.io/repos/github/dkkahn10/monologue-memorizer/badge.png)
-Tips:
+![Coverage Status](https://coveralls.io/repos/dkkahn10/monologue-memorizer/badge.png)
