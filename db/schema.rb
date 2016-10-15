@@ -17,8 +17,8 @@ ActiveRecord::Schema.define(version: 20161015175720) do
 
   create_table "monologues", force: :cascade do |t|
     t.string  "play_title",  null: false
-    t.string  "character",   null: false
-    t.integer "page_number", null: false
+    t.string  "character"
+    t.integer "page_number"
     t.string  "text_file",   null: false
   end
 
