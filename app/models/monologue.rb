@@ -3,5 +3,4 @@ class Monologue < ApplicationRecord
 
   validates :play_title, presence: true
   validates :text_file, presence: true
-
 end
