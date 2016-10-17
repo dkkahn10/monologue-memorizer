@@ -3,6 +3,8 @@ Rails.application.routes.draw do
     root to: "devise/registrations#edit"
   end
 
+  resources :profiles, only: [:show] 
+
   devise_for :users
 
 end
