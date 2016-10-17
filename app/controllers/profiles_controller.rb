@@ -9,7 +9,7 @@ class ProfilesController < ApplicationController
 
   def authorize_user
     if !user_signed_in?
-      raise ActionController::RoutingError.new("Not Found")
+      redirect_to new_user_session_path
     end
   end
 

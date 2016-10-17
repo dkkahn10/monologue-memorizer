@@ -22,7 +22,7 @@ class ProfilePhotoUploader < CarrierWave::Uploader::Base
   #   # ActionController::Base.helpers.asset_path("/images/" + [version_name, "default.jpg"].compact.join('_'))
   #
   #   # "/images/fallback/" + [version_name, "default.png"].compact.join('_')
-  #   "default.jpg"
+  #   "default.jpg" 
   # end
 
   # Process files as they are uploaded:
