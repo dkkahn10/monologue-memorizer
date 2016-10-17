@@ -10,6 +10,7 @@ gem 'foundation-rails'
 gem 'carrierwave'
 gem 'devise'
 gem 'dotenv'
+gem 'fog'
 
 group :development, :test do
   gem 'capybara'

@@ -31,10 +31,10 @@ feature 'user uploads a profile photo upon signing up' do
         fill_in 'Password Confirmation', with: 'zelda1212'
         click_button 'Sign Up'
 
-        expect(page).to have_xpath("//img[contains(@src, 'william-shakespeare-emoji.jpg')]")
+        expect(page).to have_xpath("//img[contains(@src, 'default.jpg')]")
         expect(page).to have_content("You've made it!")
         expect(page).to have_content("Sign Out")
       end
     end
-  end 
+  end
 end
