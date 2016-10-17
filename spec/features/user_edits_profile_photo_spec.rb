@@ -10,7 +10,6 @@ feature 'user adds a profile photo after signing up' do
       fill_in 'Email', with: user.email
       fill_in 'Password', with: user.password
       click_button 'Sign In'
-
       click_link 'Profile'
       click_link 'Edit Profile'
 

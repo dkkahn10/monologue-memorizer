@@ -12,7 +12,6 @@ feature 'user uploads a profile photo upon signing up' do
       fill_in 'Email', with: 'link@hyrulecastle.com'
       fill_in 'Password', with: 'zelda1212'
       fill_in 'Password Confirmation', with: 'zelda1212'
-      save_and_open_page
       attach_file 'user_profile_photo', "#{Rails.root}/spec/support/images/Wakerlink.jpg"
       click_button 'Sign Up'
 
