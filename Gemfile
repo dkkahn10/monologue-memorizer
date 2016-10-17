@@ -11,6 +11,7 @@ gem 'carrierwave'
 gem 'devise'
 gem 'dotenv'
 gem 'fog'
+gem 'mini_magick'
 
 group :development, :test do
   gem 'capybara'
