@@ -16,6 +16,7 @@ feature 'user adds a profile photo after signing up' do
       fill_in 'Current password', with: user.password
       attach_file 'user_profile_photo', "#{Rails.root}/spec/support/images/Wakerlink.jpg"
       click_button 'Update'
+      save_and_open_page
 
       expect(page).to have_xpath(
         "//img[contains(@src,'Wakerlink.jpg')]"

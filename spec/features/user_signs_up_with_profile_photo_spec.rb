@@ -19,22 +19,5 @@ feature 'user uploads a profile photo upon signing up' do
       expect(page).to have_content("You've made it!")
       expect(page).to have_content("Sign Out")
     end
-
-    context 'so that I can sign up' do
-      scenario 'and see my default profile photo' do
-        visit root_path
-        click_link 'Sign Up'
-        fill_in 'First Name', with: 'Link'
-        fill_in 'Last Name', with: 'Courage'
-        fill_in 'Email', with: 'link@hyrulecastle.com'
-        fill_in 'Password', with: 'zelda1212'
-        fill_in 'Password Confirmation', with: 'zelda1212'
-        click_button 'Sign Up'
-
-        expect(page).to have_xpath("//img[contains(@src, 'default.jpg')]")
-        expect(page).to have_content("You've made it!")
-        expect(page).to have_content("Sign Out")
-      end
-    end
   end
 end
