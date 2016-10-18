@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20161018154305) do
     t.integer "page_number"
     t.string  "text_file",   null: false
     t.string  "genre",       null: false
+    t.integer "user_id",     null: false
   end
 
   create_table "users", force: :cascade do |t|

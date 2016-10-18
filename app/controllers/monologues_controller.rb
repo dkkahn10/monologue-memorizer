@@ -10,6 +10,20 @@ class MonologuesController < ApplicationController
     @monologue = Monologue.new
   end
 
+  def create
+    @user = current_user
+    @monologue = Monologue.new(monologue_params)
+    @monologue.user_id = @user.id
+
+    if @monologue.save
+      flash[:notice] = "You uploaded a new monologue! Congratulations!"
+      redirect_to user_monologue_path(@user, @monologue.id)
+    else
+      flash[:notice] = @monologue.errors.full_message.join(', ')
+      render :new
+    end
+  end
+  
   protected
 
   def authorize_user
