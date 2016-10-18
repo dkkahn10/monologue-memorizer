@@ -3,6 +3,7 @@ class MonologuesController < ApplicationController
 
   def show
     @user = current_user
+    @monologue = Monologue.find(params[:id])
   end
 
   def new
@@ -19,11 +20,17 @@ class MonologuesController < ApplicationController
       flash[:notice] = "You uploaded a new monologue! Congratulations!"
       redirect_to user_monologue_path(@user, @monologue.id)
     else
-      flash[:notice] = @monologue.errors.full_message.join(', ')
+      flash[:notice] = @monologue.errors.full_messages.join(', ')
       render :new
     end
   end
-  
+
+  private
+
+  def monologue_params
+    params.require(:monologue).permit(:play_title, :character, :page_number, :text_file, :genre)
+  end
+
   protected
 
   def authorize_user
