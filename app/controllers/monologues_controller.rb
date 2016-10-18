@@ -4,6 +4,8 @@ class MonologuesController < ApplicationController
   def show
     @user = current_user
     @monologue = Monologue.find(params[:id])
+    uri = URI("#{@monologue.text_file}")
+    @response = Net::HTTP.get(uri)
   end
 
   def new
