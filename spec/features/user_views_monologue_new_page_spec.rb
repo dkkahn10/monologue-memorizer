@@ -17,3 +17,4 @@ feature 'user visits monologue new page' do
       expect(page).to_not have_content("#{user.first_name}'s Profile")
     end
   end
+end 
