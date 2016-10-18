@@ -13,8 +13,8 @@ feature 'user visits monologue new page' do
       click_link 'Add A New Monologue'
 
       expect(page).to have_css("form")
-      expect(page).to have_content("Upload A Monologue")
+      expect(page).to have_content("Upload Your Monologue!")
       expect(page).to_not have_content("#{user.first_name}'s Profile")
     end
   end
-end 
+end

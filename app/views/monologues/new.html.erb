@@ -1,0 +1,32 @@
+<div class="monologue-form">
+  <%= form_for [@user, @monologue] do |f| %>
+    <div class="field">
+      <%= f.label :play_title, "Title Of Play" %>
+      <%= f.text_field :play_title %>
+    </div>
+
+    <div class="field">
+      <%= f.label :character %>
+      <%= f.text_field :character %>
+    </div>
+
+    <div class="field">
+      <%= f.label :genre %>
+      <%= f.text_field :genre %>
+    </div>
+
+    <div class="field">
+      <%= f.label :page_number, "Page Number" %>
+      <%= f.text_field :page_number %>
+    </div>
+
+    <div class="field profpic">
+      Upload Your Monologue!
+      <%= f.file_field :text_file %>
+    </div>
+
+    <div class="action">
+      <%= f.submit "Add A Monologue", class: 'btn' %>
+    </div>
+  <% end %>
+</div>
