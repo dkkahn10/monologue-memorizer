@@ -42,7 +42,6 @@ feature 'user types out memory monologue' do
         fill_in 'Memory Text', with: "I AM A MONOLOGUE!!! HEAR ME ROAR!!!!!"
         click_button 'See your results!'
 
-        expect(page).to have_content("I AM A MONOLOGUE HEAR ME ROAR")
         expect(page).to have_content("The results are in!")
       end
 
