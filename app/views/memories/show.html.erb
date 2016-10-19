@@ -1,1 +1,9 @@
 <h1>The results are in!</h1>
+
+<% down_text = @response %>
+<%= down_text.gsub(/[^\w\s\d]/, '') %>
+
+<br>
+
+<% mem_text = @memory.memory_monologue %>
+<%= mem_text.gsub(/[^\w\s\d]/, '') %>

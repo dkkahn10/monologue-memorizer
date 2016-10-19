@@ -3,6 +3,13 @@ class MemoriesController < ApplicationController
 
   def show
     @memory = Memory.find(params[:id])
+    @monologue = @memory.monologue
+    uri = URI("#{@monologue.text_file}")
+    if uri.to_s.include?("http")
+      @response = Net::HTTP.get(uri)
+    else
+      @response = ""
+    end
   end
 
   def new
