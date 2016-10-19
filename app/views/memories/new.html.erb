@@ -1,0 +1,12 @@
+<div class="memory-form">
+  <%= form_for [@monologue, @memory] do |f| %>
+    <div class="field">
+      <%= f.label :memory_monologue, "Memory Text" %>
+      <%= f.text_area :memory_monologue %>
+    </div>
+
+    <div class="action">
+      <%= f.submit "See your results!", class: 'btn' %>
+    </div>
+  <% end %>
+</div>

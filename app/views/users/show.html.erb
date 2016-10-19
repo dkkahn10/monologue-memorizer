@@ -1,4 +1,12 @@
 <h1> <%= @user.first_name %>'s Profile </h1>
 
+<ul>
+  <% @user.monologues.each do |monologue| %>
+    <li>
+      <%= link_to "#{monologue.play_title}", user_monologue_path(@user.id, monologue.id) %>
+    </li>
+  <% end %>
+</ul>
+
 <%= link_to 'Add A New Monologue', new_user_monologue_path(current_user) %>
 <%= link_to 'Edit Profile', edit_user_registration_path(current_user) %>
