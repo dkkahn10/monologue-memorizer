@@ -40,7 +40,7 @@ feature 'user types out memory monologue' do
         click_button 'Add A Monologue'
         click_link 'Test Your Memory!'
         fill_in 'Memory Text', with: "I AM A MONOLOGUE!!! HEAR ME ROAR!!!!!"
-        click_button 'Check Test'
+        click_button 'See your results!'
 
         expect(page).to have_content("I AM A MONOLOGUE HEAR ME ROAR")
         expect(page).to have_content("The results are in!")
@@ -60,6 +60,7 @@ feature 'user types out memory monologue' do
         attach_file 'monologue_text_file', "#{Rails.root}/spec/support/files/monologue_test.txt"
         click_button 'Add A Monologue'
         click_link 'Test Your Memory!'
+        click_button 'See your results!'
 
         expect(page).to have_content("blank")
         expect(page).to_not have_content("I AM A MONOLOGUE HEAR ME ROAR")
