@@ -10,15 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161019160746) do
+ActiveRecord::Schema.define(version: 20161019164349) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "memory_monologues", force: :cascade do |t|
-    t.integer "monologue_id", null: false
-    t.string  "memory_text"
-    t.index ["monologue_id"], name: "index_memory_monologues_on_monologue_id", using: :btree
+  create_table "memories", force: :cascade do |t|
+    t.integer "monologue_id",     null: false
+    t.text    "memory_monologue", null: false
+    t.index ["monologue_id"], name: "index_memories_on_monologue_id", using: :btree
   end
 
   create_table "monologues", force: :cascade do |t|
