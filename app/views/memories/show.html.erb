@@ -1,9 +1,29 @@
 <h1>The results are in!</h1>
 
-<% down_text = @response %>
-<%= down_text.gsub(/[^\w\s\d]/, '') %>
+<% down_text = @response.downcase.gsub(/[^\w\s\d]/, '') %>
+<% down_text = down_text.split(" ") %>
+<%= down_text %>
 
 <br>
 
-<% mem_text = @memory.memory_monologue %>
-<%= mem_text.gsub(/[^\w\s\d]/, '') %>
+<% mem_text = @memory.memory_monologue.downcase.gsub(/[^\w\s\d]/, '') %>
+<% mem_text = mem_text.split(" ") %>
+<%= mem_text %>
+
+<br>
+
+<% green_words = [] %>
+<% down_text.each_with_index do |word, index| %>
+  <span><%= index %></span>
+  <% mem_text.each do |mem| %>
+    <% if word == mem %>
+      <% index += 1 %>
+      <span class="green"><%= word %></span>
+      <% break %>
+    <% elsif word != mem[index] %>
+      <% index += 1 %>
+      <span class="red"><%= word %></span>
+      <% break %>
+    <% end %>
+  <% end %>
+<% end %>
