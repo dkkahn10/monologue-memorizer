@@ -4,6 +4,10 @@ class ProfilePhotoUploader < CarrierWave::Uploader::Base
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
 
+  def extension_whitelist
+    %w(jpg jpeg gif png)
+  end
+
   # Choose what kind of storage to use for this uploader:
   if Rails.env.test?
     storage :file
@@ -22,7 +26,7 @@ class ProfilePhotoUploader < CarrierWave::Uploader::Base
   #   # ActionController::Base.helpers.asset_path("/images/" + [version_name, "default.jpg"].compact.join('_'))
   #
   #   # "/images/fallback/" + [version_name, "default.png"].compact.join('_')
-  #   "default.jpg" 
+  #   "default.jpg"
   # end
 
   # Process files as they are uploaded:

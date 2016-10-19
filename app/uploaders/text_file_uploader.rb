@@ -4,6 +4,10 @@ class TextFileUploader < CarrierWave::Uploader::Base
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
 
+  def extension_whitelist
+    %w(txt)
+  end
+
   # Choose what kind of storage to use for this uploader:
   if Rails.env.test?
    storage :file
