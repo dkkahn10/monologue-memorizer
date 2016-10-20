@@ -12,13 +12,18 @@
 
 <br>
 
+
+
+<br>
+
 <% green_words = [] %>
 <% down_text.each_with_index do |word, index| %>
-  <span><%= index %></span>
   <% mem_text.each do |mem| %>
     <% if word == mem %>
       <% green_words << word %>
     <% elsif word != mem %>
+      <% green_words.each do |green| %>
+        <% if green == word %>
       <% green_words << "" %>
     <% end %>
   <% end %>
