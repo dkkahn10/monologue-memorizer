@@ -11,6 +11,11 @@ class MonologuesController < ApplicationController
     else
       @response = ""
     end
+
+    respond_to do |format|
+      format.json { render json: { monologue: @monologue, response: @response } }
+      format.html
+    end
   end
 
   def new

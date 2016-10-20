@@ -3,7 +3,7 @@
 <ul>
   <% @user.monologues.each do |monologue| %>
     <li>
-      <%= link_to "#{monologue.play_title}", user_monologue_path(@user.id, monologue.id) %>
+      <%= link_to "#{monologue.play_title}", monologue_path(monologue.id) %>
     </li>
   <% end %>
 </ul>
