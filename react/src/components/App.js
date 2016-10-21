@@ -8,8 +8,8 @@ class App extends Component {
       mem_page: null,
       monologue: null,
       upload: null,
-      upload_array: null,
-      memory_array: null,
+      upload_array: "",
+      memory_array: "",
       progression: true,
       wrong_word: ""
     }
@@ -57,25 +57,20 @@ class App extends Component {
 
   handleSpacePress(event) {
     if(event.keyCode == 32) {
-      debugger;
       this.uploadArray();
       this.memoryArray();
       this.wrongWordReset();
       this.progressionReset();
       let correctArray = [];
       let uniqueArray = null;
-      let uploadArray = this.state.upload_array;
-      let memoryArray = this.state.memory_array;
-      for (let word of uploadArray) {
-        for (let mem of memoryArray) {
-          debugger;
+      for (let word of this.state.upload_array) {
+        for (let mem of this.state.memory_array) {
           if(word === mem) {
             correctArray.push(word);
             break;
           }
         }
       }
-      debugger;
       uniqueArray = this.uniqueMaker(correctArray);
       if(uniqueArray.length !== this.state.memory_array.length) {
         let wrongWord = "";
