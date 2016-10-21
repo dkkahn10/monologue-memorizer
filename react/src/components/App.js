@@ -55,23 +55,28 @@ class App extends Component {
     }
   }
 
-  handleSpacePress() {
-    this.uploadArray();
-    this.memoryArray();
-    this.wrongWordReset();
-    this.progressionReset();
-    let correctArray = [];
-    let uniqueArray = null;
-    if(event.keyCode == "Space") {
-      for (let word of this.state.upload_array) {
-        for (let mem of this.state.memory_array) {
+  handleSpacePress(event) {
+    if(event.keyCode == 32) {
+      debugger;
+      this.uploadArray();
+      this.memoryArray();
+      this.wrongWordReset();
+      this.progressionReset();
+      let correctArray = [];
+      let uniqueArray = null;
+      let uploadArray = this.state.upload_array;
+      let memoryArray = this.state.memory_array;
+      for (let word of uploadArray) {
+        for (let mem of memoryArray) {
+          debugger;
           if(word === mem) {
             correctArray.push(word);
             break;
           }
         }
       }
-      uniqueArray = uniqueMaker(correctArray);
+      debugger;
+      uniqueArray = this.uniqueMaker(correctArray);
       if(uniqueArray.length !== this.state.memory_array.length) {
         let wrongWord = "";
         wrongWord = this.state.memory_array.pop();
@@ -117,7 +122,7 @@ class App extends Component {
                 {`Back To Your Monologue`}
               </button><br/>
               <input type="text"
-              onKeyPress={this.handleSpacePress} />
+              onKeyDown={this.handleSpacePress} />
               <p>{this.state.memory}</p>
             </div>
           )
@@ -128,7 +133,7 @@ class App extends Component {
                 {`Back To Your Monologue`}
               </button><br/>
                 <input type="text"
-                onChange={this.update.bind(this)} onKeyPress={this.handleSpacePress} />
+                onChange={this.update.bind(this)} onKeyDown={this.handleSpacePress} />
               <p>{this.state.memory}</p>
             </div>
           )
