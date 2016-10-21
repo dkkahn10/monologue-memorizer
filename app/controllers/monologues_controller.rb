@@ -30,11 +30,17 @@ class MonologuesController < ApplicationController
 
     if @monologue.save
       flash[:notice] = "You uploaded a new monologue! Congratulations!"
-      redirect_to user_monologue_path(@user, @monologue.id)
+      redirect_to monologue_path(@monologue.id)
     else
       flash[:notice] = @monologue.errors.full_messages.join(', ')
       render :new
     end
+  end
+
+  def destroy
+    Monologue.find(params[:id]).destroy
+    flash[:notice] = "Monologue was deleted"
+    redirect_to root_path
   end
 
   private

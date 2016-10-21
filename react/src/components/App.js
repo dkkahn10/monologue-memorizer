@@ -8,12 +8,57 @@ class App extends Component {
       mem_page: null,
       monologue: null,
       upload: null,
+      upload_array: null,
+      memory_array: null,
+      progression: true,
+      wrong_word: ""
     }
-    this.memoryTesterClick = this.memoryTesterClick.bind(this)
+    this.memoryTesterClick = this.memoryTesterClick.bind(this);
+    this.handleSpacePress = this.handleSpacePress.bind(this);
   }
 
   update(screen_text) {
     this.setState({memory: screen_text.target.value})
+  }
+
+  uploadArray() {
+    let upload = this.state.upload;
+    let uploadArray = upload.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "");
+    uploadArray = uploadArray.replace(/\s{2,}/g, " ");
+    uploadArray = uploadArray.split(" ");
+    this.setState({upload_array: uploadArray});
+  }
+
+  memoryArray() {
+    let memory = this.state.memory;
+    let memoryArray = memory.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "");
+    memoryArray = memoryArray.replace(/\s{2,}/g, " ");
+    memoryArray = memoryArray.split(" ");
+    this.setState({memory_array: memoryArray});
+  }
+
+  handleSpacePress() {
+    this.uploadArray();
+    this.memoryArray();
+    if(this.state.wrong_word !== "") {
+      this.setState({wrong_word: ""});
+    }
+    if(this.state.progression === false) {
+      this.setState({progression: true});
+    }
+    if(event.keyCode == 32){
+      for (let word of this.state.upload_array) {
+        for (let mem of this.state.memory_array) {
+          if(word === mem) {
+            correctArray.push(word);
+            break;
+          } else {
+            this.setState({wrong_word: mem});
+            this.setState({progression: false});
+          }
+        }
+      }
+    }
   }
 
   memoryTesterClick() {
@@ -51,7 +96,7 @@ class App extends Component {
               {`Back To Your Monologue`}
             </button><br/>
             <input type="text"
-              onChange={this.update.bind(this)} />
+              onChange={this.update.bind(this)} onKeyPress={this.handleSpacePress} />
             <p>{this.state.memory}</p>
           </div>
         )

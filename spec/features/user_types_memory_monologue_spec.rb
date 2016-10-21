@@ -4,7 +4,7 @@ feature 'user types out memory monologue' do
   let!(:user) { FactoryGirl.create(:user) }
 
   context 'as a user I want to visit the show page for a monologue' do
-    xscenario 'so that I can see a link to writing out a monologue from memory' do
+    xscenario 'so that I can see a link to writing out a monologue from memory', js: true do
       visit root_path
       click_link 'Sign In'
       fill_in 'Email', with: user.email
