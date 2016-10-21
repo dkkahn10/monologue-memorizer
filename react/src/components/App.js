@@ -57,6 +57,7 @@ class App extends Component {
 
   handleSpacePress(event) {
     if(event.keyCode == 32) {
+      debugger;
       this.uploadArray();
       this.memoryArray();
       this.wrongWordReset();
@@ -71,12 +72,14 @@ class App extends Component {
           }
         }
       }
+      debugger;
       uniqueArray = this.uniqueMaker(correctArray);
       if(uniqueArray.length !== this.state.memory_array.length) {
         let wrongWord = "";
         wrongWord = this.state.memory_array.pop();
         this.setState({wrong_word: wrongWord});
         this.setState({progression: false});
+        debugger;
       }
     }
   }
