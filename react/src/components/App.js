@@ -77,7 +77,6 @@ class App extends Component {
     memory = memory.split(" ");
     memory.pop();
     memory = memory.join().replace(/,/g, " ");
-
     if(this.state.progression === true) {
       this.setState({memory_string: memory}, function afterMemoryString() {
         this.wrongWordReset();
