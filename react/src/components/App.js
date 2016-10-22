@@ -10,86 +10,12 @@ class App extends Component {
       upload: null,
       upload_array: "",
       memory_array: "",
+      memory_string: "",
       progression: true,
       wrong_word: ""
     }
     this.memoryTesterClick = this.memoryTesterClick.bind(this);
     this.handleSpacePress = this.handleSpacePress.bind(this);
-  }
-
-  update(screen_text) {
-    this.setState({memory: screen_text.target.value})
-  }
-
-  uploadArray() {
-    let upload = this.state.upload;
-    let uploadArray = upload.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "");
-    uploadArray = uploadArray.replace(/\s{2,}/g, " ");
-    uploadArray = uploadArray.toLowerCase();
-    uploadArray = uploadArray.split(" ");
-    this.setState({upload_array: uploadArray});
-  }
-
-  memoryArray() {
-    let memory = this.state.memory;
-    let memoryArray = memory.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "");
-    memoryArray = memoryArray.replace(/\s{2,}/g, " ");
-    memoryArray = memoryArray.toLowerCase();
-    memoryArray = memoryArray.split(" ");
-    this.setState({memory_array: memoryArray});
-  }
-
-  uniqueMaker(array) {
-    return Array.from(new Set(array));
-  }
-
-  wrongWordReset() {
-    if(this.state.wrong_word !== "") {
-      this.setState({wrong_word: ""});
-    }
-  }
-
-  progressionReset() {
-    if(this.state.progression === false) {
-      this.setState({progression: true});
-    }
-  }
-
-  handleSpacePress(event) {
-    if(event.keyCode == 32) {
-      debugger;
-      this.uploadArray();
-      this.memoryArray();
-      this.wrongWordReset();
-      this.progressionReset();
-      let correctArray = [];
-      let uniqueArray = null;
-      for (let word of this.state.upload_array) {
-        for (let mem of this.state.memory_array) {
-          if(word === mem) {
-            correctArray.push(word);
-            break;
-          }
-        }
-      }
-      debugger;
-      uniqueArray = this.uniqueMaker(correctArray);
-      if(uniqueArray.length !== this.state.memory_array.length) {
-        let wrongWord = "";
-        wrongWord = this.state.memory_array.pop();
-        this.setState({wrong_word: wrongWord});
-        this.setState({progression: false});
-        debugger;
-      }
-    }
-  }
-
-  memoryTesterClick() {
-    if(this.state.mem_page === null) {
-      this.setState({mem_page: ""});
-    } else {
-      this.setState({mem_page: null})
-    }
   }
 
   getMonologueId() {
@@ -106,6 +32,106 @@ class App extends Component {
     })
   }
 
+  memoryTesterClick() {
+    if(this.state.mem_page === null) {
+      this.setState({mem_page: ""});
+    } else {
+      this.setState({mem_page: null})
+    }
+  }
+
+  update(screen_text) {
+    this.setState({memory: screen_text.target.value})
+  }
+
+  handleSpacePress(event) {
+    if(event.keyCode == 32) {
+      this.uploadArray();
+    }
+  }
+
+  uploadArray() {
+    let upload = this.state.upload;
+    let uploadArray = upload.replace(/[.,\/#!$@%\^&\*;:{}=\-_`~()]/g, "");
+    uploadArray = uploadArray.replace(/\s{2,}/g, " ");
+    uploadArray = uploadArray.toLowerCase();
+    uploadArray = uploadArray.split(" ");
+    this.setState({upload_array: uploadArray}, function afterUploadArray() {
+      this.memoryArray();
+    });
+  }
+
+  memoryArray() {
+    let memory = this.state.memory;
+    let memoryArray = memory.replace(/[.,\/#!$@%\^&\*;:{}=\-_`~()]/g, "");
+    memoryArray = memoryArray.replace(/\s{2,}/g, " ");
+    memoryArray = memoryArray.toLowerCase();
+    memoryArray = memoryArray.split(" ");
+    this.setState({memory_array: memoryArray}, function afterMemoryArray() {
+      this.memoryString();
+    });
+  }
+
+  memoryString() {
+    let memory = this.state.memory;
+    memory = memory.split(" ");
+    memory.pop();
+    memory = memory.join().replace(/,/g, " ");
+
+    if(this.state.progression === true) {
+      this.setState({memory_string: memory}, function afterMemoryString() {
+        this.wrongWordReset();
+      });
+    } else {
+      this.wrongWordReset();
+    }
+  }
+
+  wrongWordReset() {
+    if(this.state.wrong_word !== "") {
+      this.setState({wrong_word: ""}, function afterWrongWordReset() {
+        this.progressionReset();
+      });
+    } else {
+      this.progressionReset();
+    }
+  }
+
+  progressionReset() {
+    if(this.state.progression === false) {
+      this.setState({progression: true}, function afterProgressionReset() {
+        this.spacePressLogic();
+      });
+    } else {
+      this.spacePressLogic();
+    }
+  }
+
+  spacePressLogic() {
+    let wrongArray = [];
+    let wrongWord = "";
+    for(let i = 0; i < this.state.upload_array.length; i++) {
+      if (this.state.upload_array[i] != this.state.memory_array[i]) {
+        wrongArray.push(this.state.memory_array[i]);
+        if (wrongArray[0] != undefined) {
+          wrongWord = wrongArray[0];
+          break;
+        }
+      }
+    }
+    if (wrongArray[0] != undefined) {
+      this.setState({wrong_word: wrongWord}, function afterSpacePressLogic(){
+        this.progressionSetter();
+      });
+    }
+  }
+
+  progressionSetter() {
+    this.setState({progression: false}, function afterProgressionSetter() {
+
+    });
+  }
+
   componentDidMount() {
     this.getMonologueId();
   }
@@ -114,14 +140,17 @@ class App extends Component {
     if (this.state.monologue !== null) {
       if (this.state.mem_page !== null) {
         if(this.state.progression === false) {
+          const redWord = {
+            color: 'red',
+          };
           return(
             <div>
               <button onClick={this.memoryTesterClick}>
                 {`Back To Your Monologue`}
               </button><br/>
-              <input type="text"
+              <input type="text" onChange={this.update.bind(this)}
               onKeyDown={this.handleSpacePress} />
-              <p>{this.state.memory}</p>
+              <p>{this.state.memory_string} <span style={redWord}>{this.state.wrong_word}</span></p>
             </div>
           )
         } else {
