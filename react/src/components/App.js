@@ -11,8 +11,10 @@ class App extends Component {
       upload_array: "",
       memory_array: "",
       memory_string: "",
+      complete_memory: "",
+      wrong_word: "",
       progression: true,
-      wrong_word: ""
+      congratulations: false
     }
     this.memoryTesterClick = this.memoryTesterClick.bind(this);
     this.handleSpacePress = this.handleSpacePress.bind(this);
@@ -27,7 +29,7 @@ class App extends Component {
     .done(data => {
       this.setState ({
         monologue: data.monologue,
-        upload: data.response
+        upload: data.response.replace(/\r?\n|\r/g, "")
       })
     })
   }
@@ -68,16 +70,27 @@ class App extends Component {
     memoryArray = memoryArray.toLowerCase();
     memoryArray = memoryArray.split(" ");
     this.setState({memory_array: memoryArray}, function afterMemoryArray() {
-      this.memoryString();
+      this.completeMemory();
     });
+  }
+
+  completeMemory() {
+    let memory = this.state.memory;
+    if(this.state.congratulations === false){
+      this.setState({complete_memory: memory}, function afterMemoryString() {
+        this.memoryString();
+      });
+    } else {
+      this.memoryString();
+    }
   }
 
   memoryString() {
     let memory = this.state.memory;
-    memory = memory.split(" ");
-    memory.pop();
-    memory = memory.join().replace(/,/g, " ");
     if(this.state.progression === true) {
+      memory = memory.split(" ");
+      memory.pop();
+      memory = memory.join().replace(/,/g, " ");
       this.setState({memory_string: memory}, function afterMemoryString() {
         this.wrongWordReset();
       });
@@ -99,29 +112,42 @@ class App extends Component {
   progressionReset() {
     if(this.state.progression === false) {
       this.setState({progression: true}, function afterProgressionReset() {
-        this.spacePressLogic();
+        this.congratulationsReset();
       });
     } else {
-      this.spacePressLogic();
+      this.congratulationsReset();
     }
+  }
+
+  congratulationsReset() {
+    this.setState({congratulations: false}, function afterCongratulationsReset() {
+      this.spacePressLogic();
+    })
   }
 
   spacePressLogic() {
     let wrongArray = [];
     let wrongWord = "";
-    for(let i = 0; i < this.state.upload_array.length; i++) {
-      if (this.state.upload_array[i] != this.state.memory_array[i]) {
-        wrongArray.push(this.state.memory_array[i]);
+    let upload_array = this.state.upload_array;
+    let memory_array = this.state.memory_array;
+    for(let i = 0; i <= upload_array.length + 1; i++) {
+      if (upload_array[i] != memory_array[i]) {
+        wrongArray.push(memory_array[i]);
         if (wrongArray[0] != undefined) {
           wrongWord = wrongArray[0];
           break;
         }
       }
     }
-    if (wrongArray[0] != undefined) {
+    if(wrongArray[0] != undefined) {
       this.setState({wrong_word: wrongWord}, function afterSpacePressLogic(){
         this.progressionSetter();
       });
+    }
+    if(wrongArray[0] == undefined && upload_array.length == memory_array.length){
+      this.setState({congratulations: true}, function afterSpacePressLogic() {
+        alert ("Way to go! You are a memorization master!");
+      })
     }
   }
 
@@ -150,6 +176,20 @@ class App extends Component {
               <input type="text" onChange={this.update.bind(this)}
               onKeyDown={this.handleSpacePress} />
               <p>{this.state.memory_string} <span style={redWord}>{this.state.wrong_word}</span></p>
+            </div>
+          )
+        } else if(this.state.congratulations === true) {
+          const greenString = {
+            color: 'green',
+          };
+          return(
+            <div>
+              <button onClick={this.memoryTesterClick}>
+                {`Back To Your Monologue`}
+              </button><br/>
+              <input type="text" onChange={this.update.bind(this)}
+              onKeyDown={this.handleSpacePress} />
+              <p style={greenString}>{this.state.complete_memory}</p>
             </div>
           )
         } else {
