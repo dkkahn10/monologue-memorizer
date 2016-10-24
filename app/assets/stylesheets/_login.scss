@@ -1,0 +1,34 @@
+html, body {
+  height: 100%;
+}
+
+.login-image {
+  background-image: url(/assets/theatre.jpg);
+  background-size: cover;
+  background-position: center;
+  padding: 100px;
+  height: 100%;
+}
+
+$body-bg: transparent;
+
+.login-header {
+  padding-top: none;
+  color: white;
+}
+
+.notice {
+  padding-left: 10px;
+}
+
+.alert {
+  padding-left: 10px;
+}
+
+label {
+  color: white;
+}
+
+.shared-white {
+  color: white;
+}
