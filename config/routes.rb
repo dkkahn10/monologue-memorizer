@@ -2,10 +2,10 @@ Rails.application.routes.draw do
   root "users#show"
 
   resources :users, only: [:show] do
-    resources :monologues, only: [:show, :new, :create, :edit, :destroy]
+    resources :monologues, only: [:new, :create, :edit, :destroy]
   end
 
-  resources :monologues, only: [:index] do
+  resources :monologues, only: [:index, :show] do
     resources :memories, only: [:show, :new, :create, :destroy]
   end
 
