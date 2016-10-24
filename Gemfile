@@ -12,6 +12,7 @@ gem 'devise'
 gem 'dotenv'
 gem 'fog'
 gem 'mini_magick'
+gem 'materialize-sass'
 
 group :development, :test do
   gem 'capybara'
