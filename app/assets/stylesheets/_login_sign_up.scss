@@ -6,7 +6,16 @@ html, body {
   background-image: url(/assets/theatre.jpg);
   background-size: cover;
   background-position: center;
-  padding: 100px;
+  padding-top: 100px;
+  height: 100%;
+}
+
+.signup-image {
+  background-image: url(/assets/theatre.jpg);
+  background-size: cover;
+  background-position: center;
+  padding-top: 50px;
+  padding-bottom: 25px;
   height: 100%;
 }
 
@@ -25,12 +34,25 @@ $body-bg: transparent;
   padding-left: 10px;
 }
 
+#error_explanation ul li{
+  text-align: center;
+  display: list-item;
+  color: white;
+}
+
+#error_explanation h2{
+  font-size: 20px;
+  text-align: center;
+  margin: 0px;
+  color: white;
+}
+
 label {
   color: white;
 }
 
 input {
-    color: white;
+  color: white;
 }
 
 .shared-white {
@@ -39,5 +61,9 @@ input {
 
 .login-form {
   background-color: rgba(1, 1, 1, 0.5);
-  padding: 30px;
+  padding: 20px;
+}
+
+.picture-upload {
+  padding: 20px;
 }
