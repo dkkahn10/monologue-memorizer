@@ -6,6 +6,7 @@
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css?family=Gudea" rel="stylesheet">
      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   </head>
 
@@ -14,16 +15,18 @@
       <% if user_signed_in? %>
       <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
       <li><%= link_to 'Profile', user_path(current_user) %></li>
-      <%= image_tag(current_user.profile_photo.small_profile_picture) %>
       <% else %>
       <li><%= link_to 'Sign Up', new_user_registration_path %></li>
       <% end %>
     </ul>
     <nav>
       <div class="nav-wrapper #ef6c00 orange darken-3">
-        <%= "Monomemorizer" %>
+        <a class="nav-title">Monomemorizer</a>
         <ul class="right hide-on-med-and-down">
-          <li><a class="dropdown-button" href="#" data-activates="nav-bar-dropdown">Menu<i class="material-icons right">arrow_drop_down</i></a></li>
+          <% if user_signed_in? %>
+            <li class="profile-photo"><%= image_tag(current_user.profile_photo.small_profile_picture) %></li>
+          <% end %>
+          <li><a class="dropdown-button menu-button" href="#" data-activates="nav-bar-dropdown">Menu<i class="material-icons right">arrow_drop_down</i></a></li>
         </ul>
       </div>
       <p class="notice center-align"> <%= notice %></p>
