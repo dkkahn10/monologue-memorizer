@@ -3,4 +3,8 @@
 <ul>
   <% @users.each do |user| %>
     <li> <%= link_to "#{user.first_name} #{user.last_name}'s Profile", user_path(user.id) %></li>
+    <% if current_user.try(:admin?) %>
+      <span><%= button_to "Delete User", user_path(user), data: { confirm: "Are you sure?" }, method: :delete %></span>
+    <% end %>
+  <% end %>
 </ul>
