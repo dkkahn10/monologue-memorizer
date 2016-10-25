@@ -6,7 +6,6 @@ feature 'user signs in' do
 
     scenario 'an existing user specifies a valid email and password' do
       visit root_path
-      click_link 'Sign In'
       fill_in 'Email', with: user.email
       fill_in 'Password', with: user.password
       click_button 'Sign In'
@@ -17,7 +16,6 @@ feature 'user signs in' do
 
     scenario 'a user specifies an invalid email and password' do
       visit root_path
-      click_link 'Sign In'
       fill_in 'Email', with: 'ganon@thekingofhyrule.com'
       fill_in 'Password', with: 'shadowrealm'
       click_button 'Sign In'
@@ -29,7 +27,6 @@ feature 'user signs in' do
 
     scenario 'an existing email with an invalid password throws an error' do
       visit root_path
-      click_link 'Sign In'
       fill_in 'Email', with: user.email
       fill_in 'Password', with: 'ilovezant123'
       click_button 'Sign In'
@@ -58,7 +55,6 @@ feature 'user signs in' do
       click_button 'Sign In'
       click_link 'Sign Out'
 
-      expect(page).to have_content('Sign In')
       expect(page).to_not have_content('Sign Out')
     end
   end

@@ -6,7 +6,6 @@ feature 'user adds a profile photo after signing up' do
 
     scenario 'so that I can upload a new profile photo' do
       visit root_path
-      click_link 'Sign In'
       fill_in 'Email', with: user.email
       fill_in 'Password', with: user.password
       click_button 'Sign In'

@@ -1,26 +1,30 @@
-<h2>Log in</h2>
+<div class="login-image">
+  <div class="container center-align login-form">
+    <h1 class="login-header">Log in</h1>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="left-align">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true %>
+    </div>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+    <div class="left-align">
+      <%= f.label :password %><br />
+      <%= f.password_field :password, autocomplete: "off" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
+    <% if devise_mapping.rememberable? -%>
+    <div class="login-remember">
       <%= f.check_box :remember_me %>
       <%= f.label :remember_me %>
     </div>
-  <% end -%>
+    <% end -%>
 
-  <div class="actions">
-    <%= f.submit "Sign In" %>
+    <button class="btn waves-effect waves-teal #ef6c00 orange darken-3">
+      <i class="material-icons right"></i>
+      <%= f.submit "Sign In" %>
+    </button>
+    <% end %>
+
+    <%= render "devise/shared/links" %>
   </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

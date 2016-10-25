@@ -5,6 +5,10 @@ class UsersController < ApplicationController
     @user = current_user
   end
 
+  def index
+    @users = User.all
+  end
+
   protected
 
   def authorize_user

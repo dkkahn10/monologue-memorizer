@@ -1,44 +1,49 @@
-<h2>Sign up</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<div class="signup-image center-align">
   <%= devise_error_messages! %>
+  <div class="container center-align login-form">
+    <h1 class="login-header">Sign up</h1>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 
-  <div class="field">
-    <%= f.label :first_name, 'First Name' %><br />
-    <%= f.text_field :first_name, autofocus: true %>
+    <div class="left-align">
+      <%= f.label :first_name, 'First Name' %><br />
+      <%= f.text_field :first_name, autofocus: true %>
+    </div>
+
+    <div class="left-align">
+      <%= f.label :last_name, 'Last Name' %><br />
+      <%= f.text_field :last_name, autofocus: true %>
+    </div>
+
+    <div class="left-align">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true %>
+    </div>
+
+    <div class="left-align">
+      <%= f.label :password %>
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "off" %>
+    </div>
+
+    <div class="left-align">
+      <%= f.label :password_confirmation, "Password Confirmation" %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    </div>
+
+    <div class="picture-upload">
+      <span>My Profile Picture</span>
+      <%= f.file_field :profile_photo %>
+    </div>
+
+    <button class="btn waves-effect waves-teal #ef6c00 orange darken-3">
+      <i class="material-icons right"></i>
+      <%= f.submit "Sign Up" %>
+    </button>
+
+    <% end %>
+
+    <%= render "devise/shared/links" %>
   </div>
-
-  <div class="field">
-    <%= f.label :last_name, 'Last Name' %><br />
-    <%= f.text_field :last_name, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation, "Password Confirmation" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="field profpic">
-    My Profile Picture</br>
-    <%= f.file_field :profile_photo %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign Up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

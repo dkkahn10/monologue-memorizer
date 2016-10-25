@@ -6,7 +6,6 @@ feature 'user uploads a new monologue' do
 
     xscenario 'so that I can upload a monologue successfully' do
       visit root_path
-      click_link 'Sign In'
       fill_in 'Email', with: user.email
       fill_in 'Password', with: user.password
       click_button 'Sign In'
@@ -25,7 +24,6 @@ feature 'user uploads a new monologue' do
 
     scenario 'so that I can upload a monologue unsuccessfully' do
       visit root_path
-      click_link 'Sign In'
       fill_in 'Email', with: user.email
       fill_in 'Password', with: user.password
       click_button 'Sign In'
