@@ -62,8 +62,14 @@ input {
 .login-form {
   background-color: rgba(1, 1, 1, 0.5);
   padding: 20px;
+  width: 40%;
 }
 
 .picture-upload {
   padding: 20px;
 }
+
+ em {
+   color: white;
+   font-size: 10px;
+ }
