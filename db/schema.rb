@@ -15,14 +15,9 @@ ActiveRecord::Schema.define(version: 20161025174522) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "memories", force: :cascade do |t|
-    t.integer "monologue_id",     null: false
-    t.text    "memory_monologue", null: false
-    t.index ["monologue_id"], name: "index_memories_on_monologue_id", using: :btree
-  end
-
   create_table "monologues", force: :cascade do |t|
     t.string  "play_title",  null: false
+    t.string  "author"
     t.string  "character"
     t.integer "page_number"
     t.string  "text_file",   null: false
