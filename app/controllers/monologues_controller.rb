@@ -43,6 +43,21 @@ class MonologuesController < ApplicationController
     redirect_to root_path
   end
 
+  def copy_monologue
+    @copied = Monologue.find(params[:id])
+    uri = URI("#{@copied.text_file}")
+    @response = Net::HTTP.get(uri)
+
+    File.truncate('/assets/files/blueprint.txt', 0)
+    File.open('/assets/files/blueprint.txt', "w+") do |f|
+      f.write(@response)
+    end
+
+    @monologue = Monologue.new(play_title: '#{@copied.play_title}', character: "#{@copied.character}", page_number: "#{@copied.page_number}", text_file: "#{/assets/files/blueprint.txt}", genre: "#{@copied.genre}", user_id: current_user)
+
+    redirect_to user_path(current_user)
+  end
+
   private
 
   def monologue_params

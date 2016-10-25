@@ -8,8 +8,13 @@
     <% if monologue.user == current_user || current_user.try(:admin?) %>
       <%= button_to "Delete Monologue", user_monologue_path(current_user, monologue.id), data: { confirm: "Are you sure?" }, method: :delete %>
     <% end %>
+    <% if current_user != @user %>
+      <%= button_to "Copy To Your Profile", copy_monologue_user_monologue_path(@user.id, monologue.id) %>
+    <% end %>
   <% end %>
 </ul>
 
-<%= link_to 'Add A New Monologue', new_user_monologue_path(current_user) %>
-<%= link_to 'Edit Profile', edit_user_registration_path(current_user) %>
+<% if current_user == @user %>
+  <%= link_to 'Add A New Monologue', new_user_monologue_path(current_user) %>
+  <%= link_to 'Edit Profile', edit_user_registration_path(current_user) %>
+<% end %>
