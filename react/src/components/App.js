@@ -208,7 +208,7 @@ class App extends Component {
         return(
           <div className="container center-align monologue-parts">
             <h1 className="individual-monologue monologue-spacing">{this.state.monologue.play_title}</h1>
-            <h2 className="monologue-spacing">{this.state.monologue.author}</h2>
+            <h2 className="monologue-spacing">{`By  ${this.state.monologue.author}`}</h2>
             <h3 className="monologue-spacing">{this.state.monologue.character}</h3>
             <h3 className="monologue-spacing">{`Page Number: ${this.state.monologue.page_number}`}</h3>
             <h4 className="monologue-spacing">{this.state.monologue.genre}</h4>

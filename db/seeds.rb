@@ -9,3 +9,5 @@
 dustin = User.create(email: 'dustinkahn@dustin.com', password: 'dustin', first_name: 'Dustin', last_name: 'Kahn', role: 'admin')
 
 noah = User.create(email: 'noah@noah.com', password: 'noah101', first_name: 'Noah', last_name: 'Milstein', role: 'member')
+
+nick = User.create(email: 'nick@nick.com', password: 'nick101', first_name: 'Nick', last_name: 'Alberts', role: 'member')
