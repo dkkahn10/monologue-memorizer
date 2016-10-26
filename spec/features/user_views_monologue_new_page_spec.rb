@@ -9,7 +9,7 @@ feature 'user visits monologue new page' do
       fill_in 'Email', with: user.email
       fill_in 'Password', with: user.password
       click_button 'Sign In'
-      click_link 'Add A New Monologue'
+      click_button 'Add A New Monologue'
 
       expect(page).to have_css("form")
       expect(page).to have_content("Upload Your Monologue!")
