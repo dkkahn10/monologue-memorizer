@@ -169,13 +169,13 @@ class App extends Component {
             color: 'red',
           };
           return(
-            <div>
-              <button onClick={this.memoryTesterClick}>
+            <div className="container monologue-text-parts">
+              <button className="back-monologue btn waves-effect waves-teal orange darken-3" onClick={this.memoryTesterClick}>
                 {`Back To Your Monologue`}
               </button><br/>
-              <input type="text" onChange={this.update.bind(this)}
+              <input className="text-box" type="text" onChange={this.update.bind(this)}
               onKeyDown={this.handleSpacePress} />
-              <p>{this.state.memory_string} <span style={redWord}>{this.state.wrong_word}</span></p>
+              <p className="white-text text-state">{this.state.memory_string} <span style={redWord}>{this.state.wrong_word}</span></p>
             </div>
           )
         } else if(this.state.congratulations === true) {
@@ -183,38 +183,41 @@ class App extends Component {
             color: 'green',
           };
           return(
-            <div>
-              <button onClick={this.memoryTesterClick}>
+            <div className="container monologue-text-parts">
+              <button className="back-monologue btn waves-effect waves-teal orange darken-3" onClick={this.memoryTesterClick}>
                 {`Back To Your Monologue`}
               </button><br/>
-              <input type="text" onChange={this.update.bind(this)}
+              <input className="text-box" type="text" onChange={this.update.bind(this)}
               onKeyDown={this.handleSpacePress} />
-              <p style={greenString}>{this.state.complete_memory}</p>
+              <p className="text-state" style={greenString}>{this.state.complete_memory}</p>
             </div>
           )
         } else {
           return(
-            <div>
-              <button onClick={this.memoryTesterClick}>
+            <div className="container monologue-text-parts">
+              <button className="back-monologue btn waves-effect waves-teal orange darken-3" onClick={this.memoryTesterClick}>
                 {`Back To Your Monologue`}
               </button><br/>
-                <input type="text"
+                <input className="text-box" type="text"
                 onChange={this.update.bind(this)} onKeyDown={this.handleSpacePress} />
-              <p>{this.state.memory}</p>
+              <p className="white-text text-state">{this.state.memory}</p>
             </div>
           )
         }
       } else {
         return(
-          <div>
-          <h1>{this.state.monologue.play_title}</h1>
-          <h2>{this.state.monologue.character}</h2>
-          <h2>{`Page Number: ${this.state.monologue.page_number}`}</h2>
-          <h3>{this.state.monologue.genre}</h3>
-          <p>{this.state.upload}</p>
-          <button onClick={this.memoryTesterClick}>
-            {`Test Your Memory!`}
-          </button>
+          <div className="container center-align monologue-parts">
+            <h1 className="individual-monologue monologue-spacing">{this.state.monologue.play_title}</h1>
+            <h2 className="monologue-spacing">{this.state.monologue.author}</h2>
+            <h3 className="monologue-spacing">{this.state.monologue.character}</h3>
+            <h3 className="monologue-spacing">{`Page Number: ${this.state.monologue.page_number}`}</h3>
+            <h4 className="monologue-spacing">{this.state.monologue.genre}</h4>
+            <br/>
+            <p className="monologue-spacing">{this.state.upload}</p>
+            <br/>
+            <button className="btn waves-effect waves-teal light-blue accent-3" onClick={this.memoryTesterClick} >
+              {`Test Your Memory!`}
+            </button>
           </div>
         );
       }

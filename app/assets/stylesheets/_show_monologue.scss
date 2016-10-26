@@ -1,0 +1,45 @@
+.monologue-image {
+  background-image: url(/assets/theatre_seats.jpg);
+  background-size: cover;
+  background-position: center;
+  padding-top: 100px;
+  height: 100%;
+}
+
+.monologue-spacing {
+  margin: 5px;
+  color: white;
+}
+
+.monologue-parts {
+  background-color: rgba(1, 1, 1, 0.5);
+  padding: 20px;
+  width: 50%;
+}
+
+.monologue-text-parts {
+  background-color: rgba(1, 1, 1, 0.8);
+  padding-top: 20px;
+  padding-right: 40px;
+  padding-left: 40px;
+  padding-bottom: 40px;
+  width: 50%;
+}
+
+.text-box {
+  background-color: rgba(1, 1, 1, 0.5);
+  padding: 20px;
+  width: 50%;
+}
+
+.white-text {
+  color: white;
+}
+
+.text-state {
+  font-size: 50px;
+}
+
+.back-monologue {
+  margin-bottom: 30px;
+}

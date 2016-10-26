@@ -1,10 +1,14 @@
-<h1>All Users</h1>
-
-<ul>
-  <% @users.each do |user| %>
-    <li> <%= link_to "#{user.first_name} #{user.last_name}'s Profile", user_path(user) %></li>
-    <% if current_user.try(:admin?) %>
-      <span><%= button_to "Delete User", user_path(user), data: { confirm: "Are you sure?" }, method: :delete %></span>
+<div class="profile-image center-align">
+  <div class="container center-align user-container">
+    <h1 class="user-header">All Users</h1>
+      <% @users.each do |user| %>
+        <hr>
+        <div class="hoverable">
+          <h4 class="individual-user"> <%= link_to "#{user.first_name} #{user.last_name}'s Profile", user_path(user), class: "user-link" %></h4>
+          <% if current_user.try(:admin?) %>
+            <%= button_to "Delete User", user_path(user), data: { confirm: "Are you sure?" }, method: :delete, class: "delete-user btn waves-effect waves-teal #c62828 red darken-3" %>
+          <% end %>
+        </div>
     <% end %>
-  <% end %>
-</ul>
+  </div>
+</div>
