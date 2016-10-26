@@ -1,0 +1,47 @@
+.profile-image {
+  background-image: url(/assets/theatre_seats.jpg);
+  background-size: cover;
+  background-position: center;
+  padding-top: 100px;
+  height: 100%;
+}
+
+.profile-header {
+  padding-top: none;
+  color: white;
+  font-weight: bold;
+}
+
+.profile-container {
+  background-color: rgba(1, 1, 1, 0.7);
+  padding: 20px;
+  width: 40%;
+}
+
+.add-monologue-link-container {
+  background-color: rgba(1, 1, 1, 0.5);
+  padding: 20px;
+  width: 40%;
+  margin-top: 20px;
+}
+
+.individual-monologue {
+  font-family: 'Chonburi', cursive;
+}
+
+.monologue-link {
+  text-decoration: none;
+  color: #ef6c00;
+}
+
+.page {
+  color: white;
+}
+
+.delete-monologue {
+  margin: 5px;
+}
+
+.profile-button {
+  margin: 5px;
+}

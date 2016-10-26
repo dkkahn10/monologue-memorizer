@@ -1,32 +1,41 @@
-<div class="monologue-form container">
-  <%= form_for [@user, @monologue] do |f| %>
-    <div class="field">
-      <%= f.label :play_title, "Title Of Play" %>
-      <%= f.text_field :play_title %>
-    </div>
+<div class="new-monologue-image center-align">
+  <div class="container center-align monologue-form">
+    <h1 class="monologue-header">New Monologue</h1>
+    <%= form_for [@user, @monologue] do |f| %>
+      <div class="left-align">
+        <%= f.label :play_title, "Title Of Play" %>
+        <%= f.text_field :play_title %>
+      </div>
 
-    <div class="field">
-      <%= f.label :character %>
-      <%= f.text_field :character %>
-    </div>
+      <div class="left-align">
+        <%= f.label :author, "Author" %>
+        <%= f.text_field :author %>
+      </div>
 
-    <div class="field">
-      <%= f.label :genre %>
-      <%= f.text_field :genre %>
-    </div>
+      <div class="left-align">
+        <%= f.label :character %>
+        <%= f.text_field :character %>
+      </div>
 
-    <div class="field">
-      <%= f.label :page_number, "Page Number" %>
-      <%= f.text_field :page_number %>
-    </div>
+      <div class="left-align">
+        <%= f.label :page_number, "Page Number" %>
+        <%= f.text_field :page_number %>
+      </div>
 
-    <div class="field profpic">
-      Upload Your Monologue!
-      <%= f.file_field :text_file, accept: "text" %>
-    </div>
+      <div class="left-align">
+        <%= f.label :genre %>
+        <%= f.text_field :genre %>
+      </div>
 
-    <div class="action">
-      <%= f.submit "Add A Monologue", class: 'btn' %>
-    </div>
-  <% end %>
+      <div class="text-upload">
+        <p class="white-title center-align">Upload Your Monologue! (only txt files)</p>
+        <%= f.file_field :text_file, accept: "text" %>
+      </div>
+
+      <button class="btn waves-effect waves-teal #ef6c00 orange darken-3">
+        <i class="material-icons right"></i>
+        <%= f.submit "Add A Monologue" %>
+      </button>
+    <% end %>
+  </div>
 </div>
