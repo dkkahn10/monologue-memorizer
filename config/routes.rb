@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
   root "users#show"
 
-  resources :users, only: [:show, :index] do
-    resources :monologues, only: [:new, :create, :edit, :destroy]
+  resources :users, only: [:show, :index, :destroy] do
+    resources :monologues, only: [:new, :create, :edit, :destroy] do
+      member do
+        post 'copy_monologue'
+      end
+    end
   end
 
   resources :monologues, only: [:index, :show] do

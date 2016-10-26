@@ -1,0 +1,39 @@
+.edit-profile-image {
+  background-image: url(/assets/theatre2.jpg);
+  background-size: cover;
+  background-position: center;
+  padding-top: 50px;
+  padding-bottom: 25px;
+  height: 100%;
+}
+
+.edit-profile-header {
+  padding-top: none;
+  color: white;
+}
+
+.edit-profile-form {
+  background-color: rgba(1, 1, 1, 0.5);
+  padding: 20px;
+  width: 50%;
+}
+
+.password {
+  color: white;
+  font-size: 10px;
+}
+
+.white-title {
+  color: white;
+}
+
+.edit-picture {
+  padding-left: 40px;
+}
+
+.edit-profile-cancel {
+  background-color: rgba(1, 1, 1, 0.5);
+  padding: 20px;
+  width: 50%;
+  margin-top: 20px;
+}

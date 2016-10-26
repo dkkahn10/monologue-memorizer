@@ -1,5 +1,4 @@
 class Monologue < ApplicationRecord
-  mount_uploader :text_file, TextFileUploader
   belongs_to :user
   has_many :memories
 
