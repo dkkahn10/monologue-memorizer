@@ -41,8 +41,9 @@ class MonologuesController < ApplicationController
 
   def copy_monologue
     @copied = Monologue.find(params[:id])
+    @user = current_user
 
-    @monologue = Monologue.new(play_title: '#{@copied.play_title}', character: "#{@copied.character}", page_number: "#{@copied.page_number}", text_file: "#{@copied.text_file}", genre: "#{@copied.genre}", user_id: current_user)
+    @monologue = Monologue.new(play_title: "#{@copied.play_title}", character: "#{@copied.character}", page_number: "#{@copied.page_number}", text_file: "#{@copied.text_file}", genre: "#{@copied.genre}", user_id: @user.id)
 
     if @monologue.save
       flash[:notice] = "You have successfully copied a monologue"
