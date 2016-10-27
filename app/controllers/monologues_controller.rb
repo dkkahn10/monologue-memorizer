@@ -33,6 +33,23 @@ class MonologuesController < ApplicationController
     end
   end
 
+  def edit
+    @user = current_user
+    @monologue = Monologue.find(params[:id])
+  end
+
+  def update
+    @monologue = Monologue.find(params[:id])
+
+    if @monologue.update_attributes(monologue_params)
+      flash[:notice] = "Monologue was successfully edited!"
+      redirect_to root_path
+    else
+      flash[:notice] = @monologue.errors.full_messages.join(", ")
+      render :edited
+    end
+  end
+
   def destroy
     Monologue.find(params[:id]).destroy
     flash[:notice] = "Monologue was deleted"
@@ -57,7 +74,7 @@ class MonologuesController < ApplicationController
   private
 
   def monologue_params
-    params.require(:monologue).permit(:play_title, :character, :page_number, :text_file, :genre, :author)
+    params.require(:monologue).permit(:play_title, :character, :page_number, :text_file, :genre, :author, :created_at, :updated_at)
   end
 
   protected

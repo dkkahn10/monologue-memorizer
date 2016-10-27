@@ -1,16 +1,19 @@
 <div class="profile-image center-align">
   <div class="container center-align profile-container">
     <h1 class="profile-header"> <%= @user.first_name %>'s Profile </h1>
-      <% @user.monologues.each do |monologue| %>
+      <% @user.monologues.sort_by(&:created_at).each do |monologue| %>
       <hr>
       <div class="hoverable">
         <h4 class="individual-monologue"><%= link_to "#{monologue.play_title}", monologue_path(monologue.id), class: "monologue-link" %></h4>
-        <p class="page">Page Number: <%= monologue.page_number %></p>
+        <span class="character">Character: <%= monologue.character %></span>
+        <span class="page">Page Number: <%= monologue.page_number %></span>
       <% if monologue.user == current_user || current_user.try(:admin?) %>
         <%= button_to "Delete Monologue", user_monologue_path(current_user, monologue.id), data: { confirm: "Are you sure?" }, method: :delete, class: "delete-monologue btn waves-effect waves-teal #c62828 red darken-3" %>
       <% end %>
       <% if current_user != @user %>
         <%= button_to "Copy To Your Profile", copy_monologue_user_monologue_path(@user.id, monologue.id), class: "btn waves-effect waves-teal #ef6c00 orange darken-3" %>
+      <% else %>
+        <%= button_to "Edit Monologue", edit_user_monologue_path(current_user, monologue.id), method: :get, class: "edit-monologue btn waves-effect waves-teal #ef6c00 orange darken-3" %>
       <% end %>
     </div>
     <% end %>
