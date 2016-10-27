@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Answer from './Monologue';
+import Monologue from './Monologue';
 import MemoryLogic from './MemoryLogic';
 
 class App extends Component {

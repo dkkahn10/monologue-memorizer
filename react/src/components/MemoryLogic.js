@@ -3,7 +3,7 @@ import MemoryWrong from './MemoryWrong';
 import MemoryCongrats from './MemoryCongrats';
 import MemoryType from './MemoryType';
 
-class MonologueLogic extends Component {
+class MemoryLogic extends Component {
   constructor(props){
     super(props);
     this.state = {
@@ -31,7 +31,7 @@ class MonologueLogic extends Component {
     }
 
   uploadArray() {
-    let upload = props.upload;
+    let upload = this.props.upload;
     let uploadArray = upload.replace(/[.,\/#!$@%\^&\*;:{}=\-_`~()]/g, "");
     uploadArray = uploadArray.replace(/\s{2,}/g, " ");
     uploadArray = uploadArray.toLowerCase();
@@ -137,7 +137,7 @@ class MonologueLogic extends Component {
 
   render(){
     let progression = this.state.progression;
-    let memoryTesterClick = props.memoryTesterClick;
+    let memoryTesterClick = this.props.memoryTesterClick;
     let congratulations = this.state.congratulations;
     let update = this.update;
     let handleSpacePress = this.handleSpacePress;
@@ -154,15 +154,17 @@ class MonologueLogic extends Component {
           handleSpacePress={handleSpacePress}
           memory_string={memory_string}
           wrong_word={wrong_word}
+          memory={memory}
         />
       )
-    } else if (congraulations === true) {
+    } else if (congratulations === true) {
       return(
         <MemoryCongrats
           memoryTesterClick={memoryTesterClick}
           update={update}
           handleSpacePress={handleSpacePress}
           complete_memory={complete_memory}
+          memory={memory}
         />
       )
     } else {

@@ -1,6 +1,7 @@
 import React from 'react';
 
 const Monologue = props => {
+
   return(
     <div className="container center-align monologue-parts">
       <h1 className="individual-monologue monologue-spacing">{props.play_title}</h1>
