@@ -4,6 +4,7 @@
   background-position: center;
   padding-top: 100px;
   height: 100%;
+  min-height: 1000px;
 }
 
 .monologue-spacing {
@@ -12,7 +13,7 @@
 }
 
 .monologue-parts {
-  background-color: rgba(1, 1, 1, 0.5);
+  background-color: rgba(1, 1, 1, 0.6);
   padding: 20px;
   width: 50%;
 }
@@ -27,7 +28,7 @@
 }
 
 .text-box {
-  background-color: rgba(1, 1, 1, 0.5);
+  background-color: rgba(1, 1, 1, 0.6);
   padding: 20px;
   width: 50%;
 }
