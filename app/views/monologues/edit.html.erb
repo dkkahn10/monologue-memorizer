@@ -1,0 +1,41 @@
+<div class="new-monologue-image center-align">
+  <div class="container center-align monologue-form">
+    <h1 class="monologue-header">Edit Monologue</h1>
+    <%= form_for [@user, @monologue] do |f| %>
+      <div class="left-align">
+        <%= f.label :play_title, "Title Of Play" %>
+        <%= f.text_field :play_title, value: @monologue.play_title %>
+      </div>
+
+      <div class="left-align">
+        <%= f.label :author, "Author" %>
+        <%= f.text_field :author, value: @monologue.author %>
+      </div>
+
+      <div class="left-align">
+        <%= f.label :character %>
+        <%= f.text_field :character, value: @monologue.character %>
+      </div>
+
+      <div class="left-align">
+        <%= f.label :page_number, "Page Number" %>
+        <%= f.text_field :page_number, value: @monologue.page_number %>
+      </div>
+
+      <div class="left-align">
+        <%= f.label :genre %>
+        <%= f.text_field :genre, value: @monologue.genre %>
+      </div>
+
+      <div class="left-align">
+        <%= f.label :text_file, "Monologue Text" %>
+        <%= f.text_area :text_file, value: @monologue.text_file %>
+      </div>
+
+      <button class="btn waves-effect waves-teal #ef6c00 orange darken-3">
+        <i class="material-icons right"></i>
+        <%= f.submit "Update Your Monologue" %>
+      </button>
+    <% end %>
+  </div>
+</div>

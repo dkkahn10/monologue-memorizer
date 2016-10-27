@@ -6,6 +6,7 @@ class CreateMonologues < ActiveRecord::Migration[5.0]
       t.string :character
       t.integer :page_number
       t.string :text_file, null: false
+      t.timestamps
     end
   end
 end
