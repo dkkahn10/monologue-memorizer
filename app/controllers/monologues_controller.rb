@@ -57,7 +57,7 @@ class MonologuesController < ApplicationController
   private
 
   def monologue_params
-    params.require(:monologue).permit(:play_title, :character, :page_number, :text_file, :genre)
+    params.require(:monologue).permit(:play_title, :character, :page_number, :text_file, :genre, :author)
   end
 
   protected

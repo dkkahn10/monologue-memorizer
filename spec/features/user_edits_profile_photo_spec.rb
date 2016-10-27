@@ -10,7 +10,7 @@ feature 'user adds a profile photo after signing up' do
       fill_in 'Password', with: user.password
       click_button 'Sign In'
       click_link 'Profile'
-      click_link 'Edit Profile'
+      click_button 'Edit Profile'
 
       fill_in 'Current password', with: user.password
       attach_file 'user_profile_photo', "#{Rails.root}/spec/support/images/Wakerlink.jpg"

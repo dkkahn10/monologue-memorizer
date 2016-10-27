@@ -8,6 +8,7 @@ html, body {
   background-position: center;
   padding-top: 100px;
   height: 100%;
+  min-height: 1000px;
 }
 
 .signup-image {
@@ -17,6 +18,7 @@ html, body {
   padding-top: 50px;
   padding-bottom: 25px;
   height: 100%;
+  min-height: 1000px;
 }
 
 $body-bg: transparent;
@@ -60,7 +62,7 @@ input {
 }
 
 .login-form {
-  background-color: rgba(1, 1, 1, 0.5);
+  background-color: rgba(1, 1, 1, 0.6);
   padding: 20px;
   width: 40%;
 }
