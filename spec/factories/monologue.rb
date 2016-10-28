@@ -1,10 +1,11 @@
 FactoryGirl.define do
-  factory :user do
-    sequence(:email) { |n| "link#{n}@hyrulecastle.com" }
-    first_name 'Link'
-    last_name 'Courage'
-    password 'zelda1212'
-    password_confirmation 'zelda1212'
+  factory :monologue do
+    sequence(:play_title) { |n| "Brighton Beach Memoirs#{n}" }
+    author 'Neil Simon'
+    character 'Eugene'
+    page_number '48'
+    genre 'Drama'
+    text_file 'I am a awesome monologue!'
     user
   end
 end
