@@ -13,6 +13,7 @@ gem 'dotenv'
 gem 'fog'
 gem 'mini_magick'
 gem 'materialize-sass'
+gem 'simplecov', :require => false, :group => :test
 
 group :development, :test do
   gem 'capybara'
