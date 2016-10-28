@@ -5,7 +5,7 @@
       <hr>
       <div class="hoverable">
         <h4 class="individual-monologue"><%= link_to "#{monologue.play_title}", monologue_path(monologue.id), class: "monologue-link" %></h4>
-        <span class="character">Character: <%= monologue.character %></span>
+        <span class="character"><%= monologue.character %></span>
         <span class="page">Page Number: <%= monologue.page_number %></span>
       <% if monologue.user == current_user || current_user.try(:admin?) %>
         <%= button_to "Delete Monologue", user_monologue_path(current_user, monologue.id), data: { confirm: "Are you sure?" }, method: :delete, class: "delete-monologue btn waves-effect waves-teal #c62828 red darken-3" %>
