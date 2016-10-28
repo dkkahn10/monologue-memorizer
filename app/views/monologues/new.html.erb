@@ -3,32 +3,32 @@
     <h1 class="monologue-header">New Monologue</h1>
     <%= form_for [@user, @monologue] do |f| %>
       <div class="left-align">
-        <%= f.label :play_title, "Title Of Play" %>
+        <%= f.label :play_title, "Title Of Play", class: "form-labels" %>
         <%= f.text_field :play_title %>
       </div>
 
       <div class="left-align">
-        <%= f.label :author, "Author" %>
+        <%= f.label :author, "Author", class: "form-labels" %>
         <%= f.text_field :author %>
       </div>
 
       <div class="left-align">
-        <%= f.label :character %>
+        <%= f.label :character, class: "form-labels" %>
         <%= f.text_field :character %>
       </div>
 
       <div class="left-align">
-        <%= f.label :page_number, "Page Number" %>
+        <%= f.label :page_number, "Page Number", class: "form-labels" %>
         <%= f.text_field :page_number %>
       </div>
 
       <div class="left-align">
-        <%= f.label :genre %>
+        <%= f.label :genre, class: "form-labels" %>
         <%= f.text_field :genre %>
       </div>
 
       <div class="text-upload">
-        <p class="white-title center-align">Upload Your Monologue! (only txt files)</p>
+        <p class="white-title center-align form-labels">Upload Your Monologue! (only txt files)</p>
         <%= f.file_field :text_file, accept: "text" %>
       </div>
 

@@ -2,6 +2,14 @@ html, body {
   height: 100%;
 }
 
+.form-labels {
+  font-size: 25px;
+}
+
+.form-fields {
+  font-size: 15px;
+}
+
 .login-image {
   background-image: url(/assets/theatre.jpg);
   background-size: cover;
@@ -73,5 +81,5 @@ input {
 
  em {
    color: white;
-   font-size: 10px;
+   font-size: 15px;
  }

@@ -3,33 +3,33 @@
     <h1 class="monologue-header">Edit Monologue</h1>
     <%= form_for [@user, @monologue] do |f| %>
       <div class="left-align">
-        <%= f.label :play_title, "Title Of Play" %>
-        <%= f.text_field :play_title, value: @monologue.play_title %>
+        <%= f.label :play_title, "Title Of Play", class: "form-labels" %>
+        <%= f.text_field :play_title, value: @monologue.play_title, class: "form-fields" %>
       </div>
 
       <div class="left-align">
-        <%= f.label :author, "Author" %>
-        <%= f.text_field :author, value: @monologue.author %>
+        <%= f.label :author, "Author", class: "form-labels" %>
+        <%= f.text_field :author, value: @monologue.author, class: "form-fields" %>
       </div>
 
       <div class="left-align">
-        <%= f.label :character %>
-        <%= f.text_field :character, value: @monologue.character %>
+        <%= f.label :character, class: "form-labels" %>
+        <%= f.text_field :character, value: @monologue.character, class: "form-fields" %>
       </div>
 
       <div class="left-align">
-        <%= f.label :page_number, "Page Number" %>
-        <%= f.text_field :page_number, value: @monologue.page_number %>
+        <%= f.label :page_number, "Page Number", class: "form-labels" %>
+        <%= f.text_field :page_number, value: @monologue.page_number, class: "form-fields" %>
       </div>
 
       <div class="left-align">
-        <%= f.label :genre %>
-        <%= f.text_field :genre, value: @monologue.genre %>
+        <%= f.label :genre, class: "form-labels" %>
+        <%= f.text_field :genre, value: @monologue.genre, class: "form-fields" %>
       </div>
 
       <div class="left-align">
-        <%= f.label :text_file, "Monologue Text" %>
-        <%= f.text_area :text_file, value: @monologue.text_file %>
+        <%= f.label :text_file, "Monologue Text", class: "form-labels" %>
+        <%= f.text_area :text_file, value: @monologue.text_file, class: "form-fields" %>
       </div>
 
       <button class="btn waves-effect waves-teal #ef6c00 orange darken-3">

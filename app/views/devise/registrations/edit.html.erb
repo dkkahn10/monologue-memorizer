@@ -5,7 +5,7 @@
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
 
     <div class="left-align">
-      <%= f.label :email %><br />
+      <%= f.label :email, class: "form-labels" %><br />
       <%= f.email_field :email, autofocus: true %>
     </div>
 
@@ -14,7 +14,7 @@
     <% end %>
 
     <div class="left-align">
-      <%= f.label :password %> <i class="password">(leave blank if you don't want to change it)</i>
+      <%= f.label :password, class: "form-labels" %> <i class="password">(leave blank if you don't want to change it)</i>
       <% if @minimum_password_length %>
       <em class="edit-pass-confirm"><%= @minimum_password_length %> characters minimum</em>
       <% end %>
@@ -22,17 +22,17 @@
     </div>
 
     <div class="left-align">
-      <%= f.label :password_confirmation %><br />
+      <%= f.label :password_confirmation, class: "form-labels" %><br />
       <%= f.password_field :password_confirmation, autocomplete: "off" %>
     </div>
 
     <div class="left-align">
-      <%= f.label :current_password %> <i class="password">(we need your current password to confirm your changes)</i><br />
+      <%= f.label :current_password, class: "form-labels" %> <i class="password">(we need your current password to confirm your changes)</i><br />
       <%= f.password_field :current_password, autocomplete: "off" %>
     </div>
 
     <div class="picture-upload edit-picture">
-      <p class="white-title center-align">Upload Profile Picture</p>
+      <p class="white-title center-align form-labels">Upload Profile Picture</p>
       <%= f.file_field :profile_photo, class:'choose_file' %>
     </div>
 
