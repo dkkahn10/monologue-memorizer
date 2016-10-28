@@ -14,12 +14,12 @@
   <body>
     <ul id="nav-bar-dropdown" class="dropdown-content">
       <% if user_signed_in? %>
-      <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
-      <li><%= link_to 'Profile', user_path(current_user) %></li>
-      <li><%= link_to 'All Users', users_path %></li>
+      <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: "menu-links" %></li>
+      <li><%= link_to 'Profile', user_path(current_user), class: "menu-links" %></li>
+      <li><%= link_to 'All Users', users_path, class: "menu-links" %></li>
       <% else %>
-      <li> <%= link_to 'Sign In', new_user_session_path %> </li>
-      <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+      <li> <%= link_to 'Sign In', new_user_session_path, class: "menu-links" %> </li>
+      <li><%= link_to 'Sign Up', new_user_registration_path, class: "menu-links" %></li>
       <% end %>
     </ul>
     <nav>
