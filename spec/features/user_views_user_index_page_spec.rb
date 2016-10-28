@@ -24,6 +24,7 @@ feature 'user visits user index' do
 
       expect(page).to have_content("All Users")
       expect(page).to have_content("Noah")
+      expect(page).to have_content("Link")
     end
   end
 end

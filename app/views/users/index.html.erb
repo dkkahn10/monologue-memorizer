@@ -6,7 +6,7 @@
         <div class="hoverable">
           <h4 class="individual-user"> <%= link_to "#{user.first_name} #{user.last_name}'s Profile", user_path(user), class: "user-link" %></h4>
           <% if current_user.try(:admin?) %>
-            <%= button_to "Delete User", user_path(user), data: { confirm: "Are you sure?" }, method: :delete, class: "delete-user btn waves-effect waves-teal #c62828 red darken-3" %>
+            <%= button_to "Delete User", user_path(user), data: { confirm: "Are you sure?" }, method: :delete, id: "#{user.id}", class: "delete-user btn waves-effect waves-teal #c62828 red darken-3" %>
           <% end %>
         </div>
     <% end %>
