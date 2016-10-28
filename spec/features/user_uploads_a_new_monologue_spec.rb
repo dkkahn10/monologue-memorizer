@@ -11,6 +11,7 @@ feature 'user uploads a new monologue' do
       click_button 'Sign In'
       click_link 'Add A New Monologue'
       fill_in 'Title Of Play', with: "Brighton Beach Memoirs"
+      fill_in 'Author', with: 'Neil Simon'
       fill_in 'Character', with: "Eugene"
       fill_in 'Genre', with: "Dramedy"
       fill_in 'Page Number', with: 35
@@ -27,7 +28,7 @@ feature 'user uploads a new monologue' do
       fill_in 'Email', with: user.email
       fill_in 'Password', with: user.password
       click_button 'Sign In'
-      click_link 'Add A New Monologue'
+      click_button 'Add A New Monologue'
       click_button 'Add A Monologue'
 
       expect(page).to have_content("can't be blank")
