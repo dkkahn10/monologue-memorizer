@@ -24,6 +24,7 @@ feature 'admin deletes user' do
       click_button "#{user2.id}"
 
       expect(page).to have_content('All Users')
+      expect(page).to have_content('User was deleted!')
       expect(page).to_not have_content('Noah')
     end
   end
