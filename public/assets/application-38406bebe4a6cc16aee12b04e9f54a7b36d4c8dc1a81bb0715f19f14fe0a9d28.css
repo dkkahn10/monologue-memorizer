@@ -9358,21 +9358,23 @@ html, body {
 /* line 39, /Users/DustinMac/challenges/monologue-memorizer/monologue-app/app/assets/stylesheets/_login_sign_up.scss */
 .notice {
   padding-left: 10px;
+  font-size: 20px;
 }
 
-/* line 43, /Users/DustinMac/challenges/monologue-memorizer/monologue-app/app/assets/stylesheets/_login_sign_up.scss */
+/* line 44, /Users/DustinMac/challenges/monologue-memorizer/monologue-app/app/assets/stylesheets/_login_sign_up.scss */
 .alert {
   padding-left: 10px;
+  font-size: 20px;
 }
 
-/* line 47, /Users/DustinMac/challenges/monologue-memorizer/monologue-app/app/assets/stylesheets/_login_sign_up.scss */
+/* line 49, /Users/DustinMac/challenges/monologue-memorizer/monologue-app/app/assets/stylesheets/_login_sign_up.scss */
 #error_explanation ul li {
   text-align: center;
   display: list-item;
   color: white;
 }
 
-/* line 53, /Users/DustinMac/challenges/monologue-memorizer/monologue-app/app/assets/stylesheets/_login_sign_up.scss */
+/* line 55, /Users/DustinMac/challenges/monologue-memorizer/monologue-app/app/assets/stylesheets/_login_sign_up.scss */
 #error_explanation h2 {
   font-size: 20px;
   text-align: center;
@@ -9380,34 +9382,34 @@ html, body {
   color: white;
 }
 
-/* line 60, /Users/DustinMac/challenges/monologue-memorizer/monologue-app/app/assets/stylesheets/_login_sign_up.scss */
+/* line 62, /Users/DustinMac/challenges/monologue-memorizer/monologue-app/app/assets/stylesheets/_login_sign_up.scss */
 label {
   color: white;
 }
 
-/* line 64, /Users/DustinMac/challenges/monologue-memorizer/monologue-app/app/assets/stylesheets/_login_sign_up.scss */
+/* line 66, /Users/DustinMac/challenges/monologue-memorizer/monologue-app/app/assets/stylesheets/_login_sign_up.scss */
 input {
   color: white;
 }
 
-/* line 68, /Users/DustinMac/challenges/monologue-memorizer/monologue-app/app/assets/stylesheets/_login_sign_up.scss */
+/* line 70, /Users/DustinMac/challenges/monologue-memorizer/monologue-app/app/assets/stylesheets/_login_sign_up.scss */
 .shared-white {
   color: white;
 }
 
-/* line 72, /Users/DustinMac/challenges/monologue-memorizer/monologue-app/app/assets/stylesheets/_login_sign_up.scss */
+/* line 74, /Users/DustinMac/challenges/monologue-memorizer/monologue-app/app/assets/stylesheets/_login_sign_up.scss */
 .login-form {
   background-color: rgba(1, 1, 1, 0.6);
   padding: 20px;
   width: 40%;
 }
 
-/* line 78, /Users/DustinMac/challenges/monologue-memorizer/monologue-app/app/assets/stylesheets/_login_sign_up.scss */
+/* line 80, /Users/DustinMac/challenges/monologue-memorizer/monologue-app/app/assets/stylesheets/_login_sign_up.scss */
 .picture-upload {
   padding: 20px;
 }
 
-/* line 82, /Users/DustinMac/challenges/monologue-memorizer/monologue-app/app/assets/stylesheets/_login_sign_up.scss */
+/* line 84, /Users/DustinMac/challenges/monologue-memorizer/monologue-app/app/assets/stylesheets/_login_sign_up.scss */
 em {
   color: white;
   font-size: 15px;
