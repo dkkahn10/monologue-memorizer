@@ -1,7 +1,6 @@
 #Monomemorizer
 
 ![Build Status](https://codeship.com/projects/1f4172d0-711f-0134-d1a4-4aa32a10a3f8/status?branch=master)
-[![Coverage Status](https://coveralls.io/repos/github/dkkahn10/monologue-memorizer/badge.svg)](https://coveralls.io/github/dkkahn10/monologue-memorizer)
 
 Monomemorizer is an app built through Ruby on Rails which allows a user to upload a monologue and store it in a database. The user is then redirected to a page built entirely out of React where they must type out their piece from memory into a form. After every press of the space bar their current string of words is compared agains those that were uploaded. Missed words are marked in red and until that word is corrected, no new text will appear under the box. Upon completion the user receives a congratulatory message and their new string becomes green. Extra features include the ability to add other user's monologues to your own profile.
 
